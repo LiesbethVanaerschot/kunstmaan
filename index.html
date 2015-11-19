@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Parsing XML in ajgularJS</title> 
+        </head>
+        <body ng-app="photosApp">
+        <h2>Parsing XML data with AngularJS</h2>
+        <input type="text" ng-model="search" class="search-query" placeholder="Search">
+        <div ng-controller="photos">
+          <ul>
+            <li ng-repeat="photo in photos"><img ng-src="{{photo.isShownBy[5].__text}}" alt="">{{photo.isShownBy[5].__text}}</li>
+          </ul>  
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script type="text/javascript" src="http://demos.amitavroy.com/learningci/assets/js/xml2json.js" charset="UTF-8"></script>
+        <!-- wordt vervangen door 1 gecompiled bestand -->
+        <script type="text/javascript" src="assets/js/app.js"></script>
+        <script type="text/javascript" src="assets/js/factory.js"></script>
+        <script type="text/javascript" src="assets/js/controller.js"></script>
+</body>
+</html>
