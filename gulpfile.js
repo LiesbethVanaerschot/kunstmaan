@@ -25,8 +25,9 @@ gulp.task('serve', ['sass'], function() {
         proxy: "www.kunstmaan.dev"
     });
 
-    gulp.watch("assets/saas/**/*.scss", ['sass']);
+    gulp.watch("assets/sass/**/*.scss", ['sass']);
     gulp.watch("*.html").on('change', browserSync.reload);
+    gulp.watch("assets/js/**/*.js").on('change', browserSync.reload);
 });
 
 gulp.task('default', ['serve']);

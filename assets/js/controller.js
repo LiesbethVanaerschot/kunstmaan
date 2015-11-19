@@ -1,4 +1,4 @@
-archiveApp.controller('photos',function($scope,photoFactory){
+archiveApp.controller('photos',['$scope', 'photoFactory', function($scope,photoFactory){
           
           $scope.photos = [];
           loadPhotos();
@@ -6,8 +6,19 @@ archiveApp.controller('photos',function($scope,photoFactory){
           function loadPhotos(){
             photoFactory.getPhotos().success(function(data){
               photos  = x2js.xml_str2json(data);
-              console.log(photos.rss.channel.item);
-              $scope.photos = photos.rss.channel.item;
+              photo_items = photos.rss.channel.item;
+              //console.log(photos.rss.channel.item);
+              photo_items.forEach(function(obj){
+                //console.log(obj);
+                var img_link = obj.isShownBy[9];
+                var img_title = obj.description;
+                var img_height;
+                var img_width;
+                console.log(img_link + " + " + img_title);
+              });
+              $scope.photos = photo_items;
+            }).error(function(data){
+              console.log(data.status);
             });
             }
-        });
+        }]);
