@@ -3,21 +3,34 @@
         <head>
             <meta charset="utf-8">
             <title>Parsing XML in ajgularJS</title> 
+            <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
             <link rel="stylesheet" href="assets/css/main.css" type="text/css">
         </head>
         <body ng-app="photosApp">
-        <h2>Fotocollectie Eerste Wereldoorlog</h2>
-        <div ng-controller="photos">
-          <ul deckgrid class="deckgrid" source="photos">
-            <li class="a-card" ><img ng-src="{{card.isShownBy[9].__text}}" alt="" class="" ></li>
-          </ul>  
-        </div>
+          <div class="header">
+            <img src="assets/images/wo1_klaproosdef.svg" alt="">
+            <h1>Fotocollectie Eerste Wereldoorlog</h1>
+          </div>
+          
+          <div ng-controller="photos">
+            <ul class="grid js-masonry"  masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile"}'>
+              <li masonry-tile ng-repeat="photo in photos" class="tile">
+                <img ng-src="{{photo.isShownBy[9].__text}}" alt="" class="" >
+                <h2>{{photo.description}}</h2>
+              </li>
+            </ul>  
+          </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="http://demos.amitavroy.com/learningci/assets/js/xml2json.js" charset="UTF-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
         <script src="https://code.angularjs.org/1.3.15/angular-animate.js"></script>
-        <script src="bower_components/angular-deckgrid/angular-deckgrid.js"></script>
-       <!--  <script type="text/javascript" src="assets/js/angulargrid.js"></script>
+        <script type="text/javascript" src="assets/js/angular-masonry-directive.js"></script>
+        <!-- deze werkt! <script src="bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+         deze werkt niet<script type="text/javascript" src="assets/js/angulargrid.js"></script>
         wordt vervangen door 1 gecompiled bestand -->
         <script type="text/javascript" src="assets/js/app.js"></script>
         <!-- <script type="text/javascript" src="assets/js/service.js"></script>  -->

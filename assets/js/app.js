@@ -1,4 +1,4 @@
-var archiveApp = angular.module('photosApp',['akoenig.deckgrid']);
+var archiveApp = angular.module('photosApp',['masonry']);
 
 
 archiveApp.config(['$httpProvider', function($httpProvider) {

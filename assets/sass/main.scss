@@ -3,30 +3,76 @@
 @import 'imports/mixins';
 @import 'imports/variables';
 
-.deckgrid[deckgrid]::before {
-    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-    content: '1 .column.column-1-1';
-    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
-    visibility: hidden;
-
-    @include breakpoint(tablet) {
-    	content: '4 .column.column-1-4';
-    }
+body {
+    margin: 0px auto;
+    max-width: 1240px;
+    //background: url('../images/handmadepaper.png');
 }
 
-.deckgrid .column {
-    float: left;
+/*********************
+SIMPLE HEADER
+*********************/
+
+.header {
+    margin: 40px auto 0px auto;
+    text-align: center;
+
+    img,
+    h1 {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    h1 {
+        display: none;
+
+        @include breakpoint(tablet) {
+            display: inline-block;
+            margin-left: 10px;
+            font-family: $seriffont;
+            font-weight: 400;
+            font-style: italic;
+            //text-transform: uppercase;
+            @include fontSize(14px); 
+        }
+
+        @include breakpoint(laptop) {
+            @include fontSize(18px);
+        }
+        
+    }
+
     img {
-    	width: 100%;
+        width: 50px;
     }
 }
 
-.deckgrid .column-1-4 {
-    width: 25%;
-    
-}
+/*********************
+PHOTOGALLERY
+*********************/
 
-.deckgrid .column-1-1 {
-    width: 100%;
-    
+/* MASONRY GRID SYSTEM */
+.grid {
+    max-width: 100%;
+    padding-left: 0px !important;
+
+    .tile {
+        width: 96%;
+        padding: 2%;
+        left: 0;
+        list-style: none;
+
+        @include breakpoint(phablet) {
+            width: 46%;
+        }
+        @include breakpoint(tablet) {
+            width: 29.3%;
+        }
+        @include breakpoint(laptop) {
+            width: 21%;
+        }
+    }
+    img {
+        width: 100%;
+    }
 }
