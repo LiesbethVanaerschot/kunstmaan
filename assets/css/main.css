@@ -29,7 +29,7 @@ COMMON
 .inactive {
   display: none; }
 
-.active {
+.animate-show {
   position: fixed !important;
   overflow-y: scroll;
   webkit-overflow-scrolling: touch; }
@@ -128,7 +128,7 @@ PHOTOGALLERY
     margin: 10px 1%;
     left: 0;
     list-style: none;
-    opacity: 0.7;
+    opacity: 0.8 !important;
     -webkit-transition: opacity .5s ease-out;
     transition: opacity .5s ease-out; }
     .grid .tile span {
@@ -152,7 +152,7 @@ PHOTOGALLERY
             -ms-transform: rotate(360deg);
                 transform: rotate(360deg); }
     .grid .tile:hover {
-      opacity: 1; }
+      opacity: 1 !important; }
     @media (min-width: 37.5em) {
       .grid .tile {
         width: 48%; } }

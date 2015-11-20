@@ -17,14 +17,13 @@ COMMON
 
 .noscroll {
     overflow: hidden;
-    //position: fixed;
 }
 
 .inactive {
     display: none;
 }
 
-.active {
+.animate-show {
     position: fixed !important;
     overflow-y: scroll;
     webkit-overflow-scrolling: touch;
@@ -32,12 +31,12 @@ COMMON
 
 .animate-show,
 .animate-hide {
-  transition:all linear 1s;
+    transition:all linear 1s;
 }
 
 
 .animate-show.ng-show {
-  opacity: 1;
+    opacity: 1;
 }
 
 .animate-show.ng-hide {
@@ -144,7 +143,7 @@ PHOTOGALLERY
         margin: 10px 1%;
         left: 0;
         list-style: none;
-        opacity: 0.7;
+        opacity: 0.8 !important;
         transition: opacity .5s ease-out;
 
         span {
@@ -168,7 +167,7 @@ PHOTOGALLERY
         }
 
         &:hover {
-            opacity: 1;
+            opacity: 1 !important;
         }
 
         @include breakpoint(phablet) {
