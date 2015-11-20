@@ -2,6 +2,7 @@ archiveApp.controller('photos',['$scope', 'photoFactory', function($scope,photoF
           
           $scope.photos = [];
           $scope.animate = false;
+          var overlay = angular.element('.overlay');
           loadPhotos();
           
           function loadPhotos(){
@@ -29,19 +30,21 @@ archiveApp.controller('photos',['$scope', 'photoFactory', function($scope,photoF
             var clickedItem = $scope.photos[elemid];
             var elemTitle = $scope.photos[elemid].description;
             var elemSrc = $scope.photos[elemid].isShownBy[9].__text;
+            
             //console.log(clickedItem);
-            angular.element('.overlay .h2_title').text(elemTitle);
-            angular.element('.overlay #elemPhoto').attr('src', elemSrc);
+            overlay.find('.h2_title').text(elemTitle);
+            overlay.find('#elemPhoto').attr('src', elemSrc);
 
-            //angular.element('.overlay').addClass('active');
             angular.element('body').addClass('noscroll');
+            overlay.removeClass("inactive");
             $scope.animate = true;
           }
 
           $scope.closeOverlay = function() {
             $scope.animate = false;
-            //angular.element('.overlay').removeClass('active');
             angular.element('body').removeClass('noscroll');
-
+            setTimeout(function() {
+                 overlay.addClass("inactive");
+             }, 1000);
           }
         }]);

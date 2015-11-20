@@ -9,29 +9,41 @@
             <link rel="stylesheet" href="assets/css/main.css" type="text/css">
         </head>
         <body ng-app="photosApp">
-          <div class="header">
-            <img src="assets/images/logoblack.svg" alt="">
-            <h1>Fotocollectie Eerste Wereldoorlog</h1>
+          <div class="container">
+            <div class="content_wrapper">
+              <header class="header">
+                <img src="assets/images/logoblack.svg" alt="">
+                <h1>Fotocollectie Eerste Wereldoorlog</h1>
+              </header>
+              
+              <div ng-controller="photos">
+                <ul class="grid js-masonry"  masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile"}'>
+                  <li masonry-tile ng-repeat="photo in photos" class="tile" ng-class = "{'last': $last}">
+                    <span ng-click="findIndex(photos.indexOf(photo))" id="{{photos.indexOf(photo)}}" class="accent">+</span>
+                    <img ng-src="{{photo.isShownBy[9].__text}}" alt="" class="" >
+                    <h2 class="h2_title">{{photo.description}}</h2>
+                  </li>
+                </ul>
+                <div class="overlay inactive accent totalloose animate-show" ng-show="animate">
+                  <span class="close" ng-click="closeOverlay()"><img src="assets/images/close.svg" alt=""></span> 
+                  <img id="elemPhoto" src="" alt="">
+                  <div class="leftpart">
+                    <h2 class="h2_title"></h2> 
+                    <p>Plaats voor bijvoorbeeld extra uitleg bij de foto!</p>
+                  </div>
+                  
+                </div>  
+              </div>
+            </div>
+            <div class="lifesaver"></div>
+            <footer>
+              <div>
+                <p>Designed and developed by</p>
+                <a href="http://www.liesbethvanaerschot.com"><img src="assets/images/lieslogo.svg" alt=""></a>
+              </div>
+            </footer>
           </div>
           
-          <div ng-controller="photos">
-            <ul class="grid js-masonry"  masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile"}'>
-              <li masonry-tile ng-repeat="photo in photos" class="tile">
-                <span ng-click="findIndex(photos.indexOf(photo))" id="{{photos.indexOf(photo)}}" class="accent">+</span>
-                <img ng-src="{{photo.isShownBy[9].__text}}" alt="" class="" >
-                <h2 class="h2_title">{{photo.description}}</h2>
-              </li>
-            </ul>
-            <div class="overlay accent totalloose animate-show" ng-show="animate">
-              <span class="close" ng-click="closeOverlay()"><img src="assets/images/close.svg" alt=""></span> 
-              <img id="elemPhoto" src="" alt="">
-              <div class="leftpart">
-                <h2 class="h2_title"></h2> 
-                <p>Plaats voor bijvoorbeeld extra uitleg bij de foto!</p>
-              </div>
-              
-            </div>  
-          </div>
 
         <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="http://demos.amitavroy.com/learningci/assets/js/xml2json.js" charset="UTF-8"></script>

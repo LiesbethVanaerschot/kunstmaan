@@ -4,16 +4,25 @@
 @import 'imports/variables';
 
 body {
-    margin: 0px auto;
-    max-width: 1240px;
-    padding: 0px 10px;
     color: $black;
     background: $white;
+    margin: 0px;
+    height: 100%;
 }
 
 /*********************
 COMMON
 *********************/
+.container {
+   min-height:100%;
+   position:relative;
+}
+
+.content_wrapper {
+    padding: 0px 10px;
+    margin: 0px auto;
+    max-width: 1240px;
+}
 
 .noscroll {
     overflow: hidden;
@@ -145,6 +154,7 @@ PHOTOGALLERY
         list-style: none;
         opacity: 0.8 !important;
         transition: opacity .5s ease-out;
+        min-height: 200px;
 
         span {
             position: absolute;
@@ -228,5 +238,43 @@ OVERLAY
         .leftpart {
             width: 31%;
         }
+    }
+}
+
+/*********************
+FOOTER
+*********************/
+
+.lifesaver {
+    visibility: hidden;
+    height: 60px;
+}
+
+footer {
+    color: $black;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0px 25px;
+    text-align: center;
+
+    p {
+        margin-right: 10px;
+        @include fontSize(12px);
+    }
+
+    p,
+    img {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    img {
+        width: 15px;
+    }
+
+    @include breakpoint(phablet) {
+        text-align: right;
     }
 }
