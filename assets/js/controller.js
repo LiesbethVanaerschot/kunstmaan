@@ -33,7 +33,7 @@ archiveApp.controller('photos',['$scope', 'photoFactory', function($scope,photoF
             angular.element('.overlay .h2_title').text(elemTitle);
             angular.element('.overlay #elemPhoto').attr('src', elemSrc);
 
-            //angular.element('.overlay').removeClass('inactive').addClass('active');
+            angular.element('.overlay').addClass('active');
             angular.element('body').addClass('noscroll');
             $scope.animate = true;
           }
@@ -41,5 +41,6 @@ archiveApp.controller('photos',['$scope', 'photoFactory', function($scope,photoF
           $scope.closeOverlay = function() {
             $scope.animate = false;
             angular.element('body').removeClass('noscroll');
+            angular.element('.overlay').removeClass('active');
           }
         }]);

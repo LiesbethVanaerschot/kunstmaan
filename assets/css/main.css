@@ -24,8 +24,7 @@ body {
 COMMON
 *********************/
 .noscroll {
-  overflow: hidden;
-  position: fixed; }
+  overflow: hidden; }
 
 .inactive {
   display: none; }
@@ -33,7 +32,6 @@ COMMON
 .active {
   position: fixed !important;
   overflow-y: scroll;
-  display: block !important;
   webkit-overflow-scrolling: touch; }
 
 .animate-show,
