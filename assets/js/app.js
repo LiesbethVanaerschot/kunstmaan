@@ -1,4 +1,4 @@
-var archiveApp = angular.module('photosApp',['masonry']);
+var archiveApp = angular.module('photosApp',['masonry', 'ngAnimate']);
 
 
 archiveApp.config(['$httpProvider', function($httpProvider) {
@@ -14,10 +14,4 @@ archiveApp.config(['$httpProvider', function($httpProvider) {
           $httpProvider.defaults.headers.common['Access-Control-Allow-Credentials'] = true;
     }
 ]);
-
-/*archiveApp.service('imageService',['$q','$http',function($q,$http){
-        this.getPhotos = function(){
-            return $http.get("http://www.gahetna.nl/beeldbank-api/opensearch/?q=2.24.09");
-          }
-    }]);*/
 

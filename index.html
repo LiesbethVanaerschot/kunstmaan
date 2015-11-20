@@ -17,14 +17,20 @@
           <div ng-controller="photos">
             <ul class="grid js-masonry"  masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile"}'>
               <li masonry-tile ng-repeat="photo in photos" class="tile">
-                <span id="{{photos.indexOf(photo)}}" class="accent">+</span>
+                <span ng-click="findIndex(photos.indexOf(photo))" id="{{photos.indexOf(photo)}}" class="accent">+</span>
                 <img ng-src="{{photo.isShownBy[9].__text}}" alt="" class="" >
-                <h2>{{photo.description}}</h2>
-                <div class="overlay accent totalloose">
-                  <h2>{{photo.description}}</h2>  
-                </div>
+                <h2 class="h2_title">{{photo.description}}</h2>
               </li>
-            </ul>  
+            </ul>
+            <div class="overlay accent totalloose animate-show" ng-show="animate">
+              <span class="close" ng-click="closeOverlay()"><img src="assets/images/close.svg" alt=""></span> 
+              <img id="elemPhoto" src="" alt="">
+              <div class="leftpart">
+                <h2 class="h2_title"></h2> 
+                <p>Plaats voor bijvoorbeeld extra uitleg bij de foto!</p>
+              </div>
+              
+            </div>  
           </div>
 
         <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>

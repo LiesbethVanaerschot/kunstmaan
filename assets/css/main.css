@@ -23,17 +23,60 @@ body {
 /*********************
 COMMON
 *********************/
+.noscroll {
+  overflow: hidden;
+  position: fixed; }
+
+.inactive {
+  display: none; }
+
+.active {
+  position: fixed !important;
+  overflow-y: scroll;
+  display: block !important;
+  webkit-overflow-scrolling: touch; }
+
+.animate-show,
+.animate-hide {
+  -webkit-transition: all linear 1s;
+  transition: all linear 1s; }
+
+.animate-show.ng-show {
+  opacity: 1; }
+
+.animate-show.ng-hide {
+  opacity: 0; }
+
 .accent {
   background-color: #E4FF35; }
 
 .totalloose {
-  display: none;
   position: absolute;
   z-index: 1000;
   left: 0;
   right: 0;
   bottom: 0;
-  top: 0; }
+  top: 0;
+  background-color: rgba(228, 255, 53, 0.8); }
+
+.h2_title {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  margin-top: 5px;
+  padding: 10px 0px;
+  border-bottom: 2px solid #2e2e2e;
+  border-top: 2px solid #2e2e2e; }
+
+img {
+  width: 100%; }
+
+p {
+  font-family: "Noto Serif", serif;
+  font-size: 14px;
+  font-size: 0.875rem; }
 
 /*********************
 SIMPLE HEADER
@@ -103,7 +146,13 @@ PHOTOGALLERY
       color: #fdfdfd;
       text-align: center;
       line-height: 40px;
-      cursor: pointer; }
+      cursor: pointer;
+      -webkit-transition: all 1s ease;
+      transition: all 1s ease; }
+      .grid .tile span:hover {
+        -webkit-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+                transform: rotate(360deg); }
     .grid .tile:hover {
       opacity: 1; }
     @media (min-width: 37.5em) {
@@ -121,15 +170,34 @@ PHOTOGALLERY
     @media (min-width: 64em) {
       .grid .tile {
         width: 23%; } }
-  .grid img {
-    width: 100%; }
-  .grid h2 {
-    text-transform: uppercase;
-    font-family: "Montserrat", sans-serif;
-    text-align: center;
-    font-size: 15px;
-    font-size: 0.9375rem;
-    margin-top: 5px;
-    padding: 10px 0px;
-    border-bottom: 2px solid #2e2e2e;
-    border-top: 2px solid #2e2e2e; }
+
+/*********************
+OVERLAY
+*********************/
+.overlay {
+  padding: 0px 10px 40px 10px; }
+  .overlay .close {
+    display: block;
+    text-align: right;
+    padding: 15px;
+    cursor: pointer; }
+    .overlay .close img {
+      width: 30px;
+      -webkit-transition: all 1s ease;
+      transition: all 1s ease; }
+      .overlay .close img:hover {
+        -webkit-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+                transform: rotate(360deg); }
+  @media (min-width: 64em) {
+    .overlay {
+      padding: 0px 30px 40px 30px; }
+      .overlay #elemPhoto,
+      .overlay .leftpart {
+        display: inline-block;
+        vertical-align: top; }
+      .overlay #elemPhoto {
+        width: 66%;
+        margin-right: 20px; }
+      .overlay .leftpart {
+        width: 31%; } }

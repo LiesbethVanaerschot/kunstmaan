@@ -16,21 +16,68 @@ COMMON
 *********************/
 
 .noscroll {
-
+    overflow: hidden;
+    position: fixed;
 }
+
+.inactive {
+    display: none;
+}
+
+.active {
+    position: fixed !important;
+    overflow-y: scroll;
+    display: block !important;
+    webkit-overflow-scrolling: touch;
+}
+
+.animate-show,
+.animate-hide {
+  transition:all linear 1s;
+}
+
+
+.animate-show.ng-show {
+  opacity: 1;
+}
+
+.animate-show.ng-hide {
+    opacity: 0;
+}
+
 
 .accent {
     background-color: $accent;
 }
 
 .totalloose {
-    display: none;
     position: absolute;
     z-index: 1000;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
+    background-color: rgba($accent, 0.8);
+}
+
+.h2_title {
+    text-transform: uppercase;
+    font-family: $sansseriffont;
+    text-align: center;
+    @include fontSize(15px);
+    margin-top: 5px;
+    padding: 10px 0px;
+    border-bottom: 2px solid $black;
+    border-top: 2px solid $black;
+}
+
+img {
+    width: 100%;
+}
+
+p {
+    font-family: $seriffont;
+    @include fontSize(14px);
 }
 
 /*********************
@@ -114,6 +161,11 @@ PHOTOGALLERY
             text-align: center;
             line-height: 40px;
             cursor: pointer;
+            transition: all 1s ease;
+
+            &:hover {
+                transform: rotate(360deg) ;
+            }
         }
 
         &:hover {
@@ -137,18 +189,46 @@ PHOTOGALLERY
             width: 23%;
         }
     }
-    img {
-        width: 100%;
+
+}
+
+/*********************
+OVERLAY
+*********************/
+
+.overlay {
+    padding: 0px 10px 40px 10px;
+
+    .close {
+        display: block;
+        text-align: right;
+        padding: 15px;
+        cursor: pointer;
+
+        img {
+            width: 30px;
+            transition: all 1s ease;
+
+            &:hover {
+                transform: rotate(360deg) ;
+            }
+        }
     }
 
-    h2 {
-        text-transform: uppercase;
-        font-family: $sansseriffont;
-        text-align: center;
-        @include fontSize(15px);
-        margin-top: 5px;
-        padding: 10px 0px;
-        border-bottom: 2px solid $black;
-        border-top: 2px solid $black;
+    @include breakpoint(laptop) {
+        padding: 0px 30px 40px 30px;
+        #elemPhoto,
+        .leftpart {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #elemPhoto {
+            width: 66%;
+            margin-right: 20px;
+        }
+        .leftpart {
+            width: 31%;
+        }
     }
 }
