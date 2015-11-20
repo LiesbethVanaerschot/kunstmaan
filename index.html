@@ -2,22 +2,27 @@
     <html>
         <head>
             <meta charset="utf-8">
-            <title>Parsing XML in ajgularJS</title> 
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Fotocollectie Eerste Wereldoorlog</title> 
             <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
             <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
             <link rel="stylesheet" href="assets/css/main.css" type="text/css">
         </head>
         <body ng-app="photosApp">
           <div class="header">
-            <img src="assets/images/wo1_klaproosdef.svg" alt="">
+            <img src="assets/images/logoblack.svg" alt="">
             <h1>Fotocollectie Eerste Wereldoorlog</h1>
           </div>
           
           <div ng-controller="photos">
             <ul class="grid js-masonry"  masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile"}'>
               <li masonry-tile ng-repeat="photo in photos" class="tile">
+                <span id="{{photos.indexOf(photo)}}" class="accent">+</span>
                 <img ng-src="{{photo.isShownBy[9].__text}}" alt="" class="" >
                 <h2>{{photo.description}}</h2>
+                <div class="overlay accent totalloose">
+                  <h2>{{photo.description}}</h2>  
+                </div>
               </li>
             </ul>  
           </div>

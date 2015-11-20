@@ -6,7 +6,31 @@
 body {
     margin: 0px auto;
     max-width: 1240px;
-    //background: url('../images/handmadepaper.png');
+    padding: 0px 10px;
+    color: $black;
+    background: $white;
+}
+
+/*********************
+COMMON
+*********************/
+
+.noscroll {
+
+}
+
+.accent {
+    background-color: $accent;
+}
+
+.totalloose {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
 }
 
 /*********************
@@ -14,7 +38,7 @@ SIMPLE HEADER
 *********************/
 
 .header {
-    margin: 40px auto 0px auto;
+    margin: 15px 1% 15px 1%;
     text-align: center;
 
     img,
@@ -24,26 +48,39 @@ SIMPLE HEADER
     }
 
     h1 {
-        display: none;
-
-        @include breakpoint(tablet) {
-            display: inline-block;
-            margin-left: 10px;
-            font-family: $seriffont;
-            font-weight: 400;
-            font-style: italic;
-            //text-transform: uppercase;
-            @include fontSize(14px); 
-        }
-
-        @include breakpoint(laptop) {
-            @include fontSize(18px);
-        }
-        
+        display: block;
+        font-family: $sansseriffont;
+        font-weight: 400;
+        text-transform: uppercase;
+        padding: 10px 0px;
+        margin-top: 15px;
+        @include fontSize(12px);
+        color: $grey;
+        border-bottom: 2px solid $grey;
+        border-top: 2px solid $grey;
     }
 
     img {
         width: 50px;
+    }
+
+    @include breakpoint(tablet) {
+        margin: 40px 1% 0px 1%;
+        padding: 5px 0px;
+        border-bottom: 1px solid $grey;
+        border-top: 1px solid $grey;
+
+        h1 {
+            display: inline-block;
+            margin-left: 10px; 
+            border: none;
+            color: $black; 
+        }
+    }
+    @include breakpoint(laptop) {
+        h1 {
+           @include fontSize(18px); 
+       }
     }
 }
 
@@ -57,22 +94,61 @@ PHOTOGALLERY
     padding-left: 0px !important;
 
     .tile {
-        width: 96%;
-        padding: 2%;
+        width: 98%;
+        margin: 10px 1%;
         left: 0;
         list-style: none;
+        opacity: 0.7;
+        transition: opacity .5s ease-out;
+
+        span {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            left: 8px;
+            top: 8px;
+            @include fontSize(35px);
+            font-weight: 700;
+            color: $white;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
 
         @include breakpoint(phablet) {
-            width: 46%;
+            width: 48%;
         }
         @include breakpoint(tablet) {
-            width: 29.3%;
+            width: 31.3%;
+
+            span {
+                width: 30px;
+                height: 30px;
+                @include fontSize(25px);
+                line-height: 30px;
+            }
         }
         @include breakpoint(laptop) {
-            width: 21%;
+            width: 23%;
         }
     }
     img {
         width: 100%;
+    }
+
+    h2 {
+        text-transform: uppercase;
+        font-family: $sansseriffont;
+        text-align: center;
+        @include fontSize(15px);
+        margin-top: 5px;
+        padding: 10px 0px;
+        border-bottom: 2px solid $black;
+        border-top: 2px solid $black;
     }
 }
