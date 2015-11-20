@@ -1,4 +1,4 @@
-archiveApp.factory('photoFactory',function($http){
+archiveApp.factory('photoFactory',['$http', function($http){
           var factory = [];
           
           factory.getPhotos = function(){
@@ -6,4 +6,4 @@ archiveApp.factory('photoFactory',function($http){
           }
         
             return factory;
-        });
+        }]);

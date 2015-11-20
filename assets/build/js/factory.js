@@ -1,0 +1,1 @@
+archiveApp.factory("photoFactory",["$http",function(t){var e=[];return e.getPhotos=function(){return t.get("http://www.gahetna.nl/beeldbank-api/opensearch/?q=2.24.09")},e}]);

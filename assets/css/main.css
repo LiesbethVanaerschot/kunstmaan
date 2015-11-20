@@ -208,32 +208,3 @@ OVERLAY
         margin-right: 20px; }
       .overlay .leftpart {
         width: 31%; } }
-
-/*********************
-FOOTER
-*********************/
-.lifesaver {
-  visibility: hidden;
-  height: 60px; }
-
-footer {
-  color: #2e2e2e;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 0px 25px;
-  text-align: center; }
-  footer p {
-    margin-right: 10px;
-    font-size: 12px;
-    font-size: 0.75rem; }
-  footer p,
-  footer img {
-    display: inline-block;
-    vertical-align: middle; }
-  footer img {
-    width: 15px; }
-  @media (min-width: 37.5em) {
-    footer {
-      text-align: right; } }
